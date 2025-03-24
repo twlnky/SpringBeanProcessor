@@ -13,7 +13,7 @@ public class AuditBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof Auditable) {
             System.out.println("Обработка бина: " + beanName);
-            ((Auditable) bean).audit();
+            return (Auditable) bean;
         }
         return bean;
     }
