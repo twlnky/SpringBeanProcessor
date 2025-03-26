@@ -11,17 +11,13 @@ public class ApplicationRunner implements CommandLineRunner {
 
     private final MyAuditableService auditableService;
 
-
     public ApplicationRunner(MyAuditableService auditableService) {
         this.auditableService = auditableService;
     }
 
     @Override
     public void run(String... args) throws Exception {
-
         auditableService.sortedData(Comparator.naturalOrder());
-
-
         auditableService.audit();
     }
 }

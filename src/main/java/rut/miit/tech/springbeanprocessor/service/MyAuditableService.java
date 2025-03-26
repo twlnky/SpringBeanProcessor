@@ -1,6 +1,8 @@
 package rut.miit.tech.springbeanprocessor.service;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import rut.miit.tech.springbeanprocessor.annotations.LoggingClass;
 import rut.miit.tech.springbeanprocessor.annotations.LoggingMethod;
@@ -14,6 +16,11 @@ import java.util.stream.IntStream;
 @Service
 public class MyAuditableService implements Auditable {
     private int[] data;
+    @Autowired
+    private String helloString;
+    @Autowired
+    private ResourceLoader resourceLoader;
+
 
     @PostConstruct
     public void initData() {
@@ -38,8 +45,17 @@ public class MyAuditableService implements Auditable {
         }
     }
 
+
+
+    public void printRandomNumber(Integer randomNumber){
+        System.out.println(randomNumber);
+    }
+
     @Override
     public void audit() {
+        System.out.println(helloString);
         System.out.println("Аудит данных: " + Arrays.toString(data));
+        System.out.println(resourceLoader.getResource("static/view.html"));
+
     }
 }

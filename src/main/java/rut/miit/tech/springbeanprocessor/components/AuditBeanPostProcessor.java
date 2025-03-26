@@ -1,8 +1,8 @@
 package rut.miit.tech.springbeanprocessor.components;
 
-import org.junit.jupiter.api.Order;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import rut.miit.tech.springbeanprocessor.interfaces.Auditable;
 @Order(100)
